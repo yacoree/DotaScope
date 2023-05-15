@@ -1,0 +1,48 @@
+﻿@page "/Matches"
+@using DotaScope.Data
+@using Steam.Models.DOTA2
+@using SteamWebAPI2.Utilities;
+@using SteamWebAPI2.Interfaces;
+@inject NavigationManager Navigation
+@inject SingletonDotaApi singletonDotaApi
+<PageTitle>T</PageTitle>
+
+
+
+<body>  
+    <div class="card">
+        <img src="https://media.cyberscore.live/static/tournaments/2023/5/101b4ed9-b7d3-4657-9649-cb13d60163cb.png"/>
+             <h3 class="h3first">DPC CN 2023 T3 OQ</h3>
+             <h3 class="h3second">Не указано</h3>
+             <p>T-3</p>
+             <h3 class="dateCard">15.05.2023 - 20.05.2023</h3>
+    </div>
+        @*@if (teams != null)
+        {
+            @foreach (var team in teams)
+            {
+                @if (team != null)
+                {
+                    <tr>
+                        <td>@team.Name</td>
+                        <td>@team.CountryCode</td>
+                        <td>@team.GamesPlayedWithCurrentRoster</td>
+                        <td>@team.Rating</td>
+                        <td>@team.PlayerIds</td>
+                    </tr>
+                }
+            }
+        }*@
+</body>
+
+@code {
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var team = await singletonDotaApi.GetDotaAPI().GetDOTA2.GetTeamInfoByTeamIdAsync(startAtTeamId: 2586976);
+        //var team1 = await singletonDotaApi.GetDotaAPI().GetTeams();
+        //teams = team.Data;
+    }
+}

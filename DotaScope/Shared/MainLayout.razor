@@ -1,0 +1,66 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>DotaScope</PageTitle>
+
+<div class="page">
+    <main>
+        <style>
+        .header {
+                text-align: justify;
+                letter-spacing: 1px;
+                height: 4em;
+                padding: 0 10%;
+                background: #000000;
+                color: #fff;
+        }
+        .header h1,
+            .header nav {
+                display: inline-block;
+               
+        }       
+       .header::after {
+                content: '';
+                display: inline-block;
+                width: 100%;
+        }
+        .header h1 {
+                height: 100%;
+        }
+        .header h1::before {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;  
+                height: 100%;
+        }
+        a {
+                text-decoration: none;
+                color: #666;
+        }
+         a:active, /* активная/посещенная ссылка */
+         a:hover
+         {
+             text-decoration: underline;
+             text-decoration-thickness: 2px;
+             text-decoration-color: red;
+             color: #fff;
+         }/* при наведении */
+         
+    </style>
+
+        @*<div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>*@
+        <div class="header">
+            <h1>DotaScope</h1>
+            <nav>
+                <a href="/">Главная</a> 
+                <a href="Matches">Матчи</a> 
+                <a href="Teams">Команды</a> 
+            </nav>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
