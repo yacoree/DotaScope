@@ -90,8 +90,7 @@
     protected override async Task OnInitializedAsync()
     {
         base.OnInitialized();
-        var team = await singletonDotaApi.GetDotaAPI().GetDOTA2.GetTeamInfoByTeamIdAsync(startAtTeamId: 2586976);
-        //var team1 = await singletonDotaApi.GetDotaAPI().GetTeams();
+        var team = await singletonDotaApi.GetDotaAPI().GetDOTA2.GetTeamInfoByTeamIdAsync();
         teams = team.Data;
     }
 }
